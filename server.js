@@ -29,6 +29,7 @@ app.post("/signin", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   register.handleRegister(req, res, db, bcrypt);
 });
 
