@@ -18,10 +18,12 @@ const db = require("knex")({
 
 const app = express();
 app.use(express.json());
-var corsOptions = {
-  origin: "*",
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    //origin: ["*"],
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.json("it is working!");
