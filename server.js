@@ -18,7 +18,7 @@ const db = require("knex")({
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json("it is working!");
@@ -29,7 +29,6 @@ app.post("/signin", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   register.handleRegister(req, res, db, bcrypt);
 });
 
